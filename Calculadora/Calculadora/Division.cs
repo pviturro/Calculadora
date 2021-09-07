@@ -7,8 +7,10 @@ namespace Calculadora
     public class Division
     {
 
-        public static DatosDivision division(int n1, int n2)
+        public static DatosDivision operate(int n1, int n2)
         {
+            if (n1 < 0 || n2 < 0)
+                throw new InvalidOperationException("No se pueden dividir valores negativos");
             return new DatosDivision(n1, n2);
         }
 

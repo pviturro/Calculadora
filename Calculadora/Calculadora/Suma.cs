@@ -6,7 +6,7 @@ namespace Calculadora
 {
     public class Suma
     {
-        public static int sum(int[] nums)
+        public static int operate(int[] nums)
         {
             var total = 0;
             foreach (var n in nums)
