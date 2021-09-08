@@ -22,10 +22,10 @@ namespace Calculadora.test
         [TestMethod]
         public void TestDivision()
         {
-            DatosDivision datosDivision = Division.operate(4, 2);
+            Tuple<int, int> datosDivision = Division.operate(4, 2);
             
-            Assert.AreEqual(2, datosDivision.resultado);
-            Assert.AreEqual(0, datosDivision.resto);
+            Assert.AreEqual(2, datosDivision.Item1);
+            Assert.AreEqual(0, datosDivision.Item2);
         }
         
         [TestMethod]
@@ -38,6 +38,32 @@ namespace Calculadora.test
         public void DividirPorCero()
         {
             Assert.ThrowsException<DivideByZeroException>(() => Division.operate(15, 0));
+        }
+
+        [TestMethod]
+        public void TestMultiplicacion()
+        {
+            var m = Multiplicacion.operate(5, 3);
+            Assert.AreEqual(15, m);
+        }
+
+        [TestMethod]
+        public void TestMultiplicacionFail()
+        {
+            Assert.ThrowsException<InvalidOperationException>(() => Multiplicacion.operate(-19, 2));
+        }
+
+        [TestMethod]
+        public void TestResta()
+        {
+            var r = Resta.operate(10, 2);
+            Assert.AreEqual(r, 8);
+        }
+
+        [TestMethod]
+        public void TestRestaFail()
+        {
+            Assert.ThrowsException<InvalidOperationException>(()=> Resta.operate(15, -2));
         }
     }
 }
